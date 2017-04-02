@@ -1,0 +1,6 @@
+ParticleStateIntent turn {state}
+ParticleColorIntent change color to {color}
+ParticleColorIntent change to {color}
+ParticleColorIntent turn color {color}
+ParticleColorIntent turn {color}
+ParticleBrightnessIntent set brightness level to {brightness}

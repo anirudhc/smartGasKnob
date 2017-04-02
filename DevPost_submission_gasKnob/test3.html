@@ -1,0 +1,104 @@
+<style type="text/css">
+.myButton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+    background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+    background-color:#ffffff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+    background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+    background-color:#f6f6f6;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+body {
+    background-image: url("./images/test2.jpg");
+    /*background-color: #cccccc;*/
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+
+</style>
+
+<html>
+<body>
+<center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="myButton" onclick="functionCall('led', 'eggs')">Boil Eggs</button>
+<br>
+<br>
+<button type="button" class="myButton" onclick="functionCall('led', 'fries')">French Fries</button>
+<br>
+<br>
+<button type="button" class="myButton" onclick="functionCall('led', 'milk')">Boil Milk</button>
+<br>
+<br>
+<button type="button" class="myButton" onclick="functionCall('led', 'water')">Boil Water</button>
+<br>
+<br>
+<button type="button" class="myButton" onclick="functionCall('led', 'rice')">Cook rice</button>
+<br>
+<br>
+<a href="./images/test3.jpg" class="myButton">Ratatouille</a>
+<br>
+<br>
+<script src="http://cdn.jsdelivr.net/sparkjs/1.0.0/spark.min.js"></script>
+
+<script>
+var accessToken = "f201d6859a83aed6b972679706055660827974a7";
+var deviceID = "3a001c001951353337343731";
+spark.on('login', function(response) {   
+    console.log(response);   
+    });
+
+var callback = function(err, data) {
+    if (err) {
+      console.log('An error occurred while getting core attrs:', err);
+    }
+    else {
+    console.log('Core attr retrieved successfully:', data);
+    }
+};
+function functionCall(functionName, functionArgument){
+spark.callFunction(deviceID, functionName, functionArgument, callback);  
+}
+spark.login({ accessToken: accessToken });
+</script>
+</center>
+</body>
+</html>

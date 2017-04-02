@@ -1,0 +1,34 @@
+{
+  "intents": [
+    {
+      "intent": "ParticleStateIntent",
+      "slots": [
+        {
+          "name": "state",
+          "type": "LIST_OF_STATES"
+        }
+      ]
+    },
+    {
+      "intent": "ParticleColorIntent",
+      "slots": [
+        {
+          "name": "color",
+          "type": "LIST_OF_COLORS"
+        }
+      ]
+    },
+    {
+      "intent": "ParticleBrightnessIntent",
+      "slots": [
+        {
+          "name": "brightness",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}
